@@ -10,8 +10,6 @@ const isOperator = /[*/+-]/
 , isNumb = (/\d/)
 , isEqual = (/\=/)
 , isDecimal = (/\./);
- 
-let isResult = false;
 
 export default function Home() {
   
@@ -29,8 +27,6 @@ export default function Home() {
     {
       setOverflow(true);
     }
-
-    //setCurrent(val)
 
     if(val === 'AC')
     {
@@ -56,7 +52,6 @@ export default function Home() {
 
       else if(operator !== null)
       {
-        console.log("op nicht mehr null")
         if(isOperator.test(current))
         {
           setCurrent(val);
@@ -132,7 +127,6 @@ export default function Home() {
     // calc func
     function calc()
     {
-
       const prev = parseFloat(prevVal);
       const curr = parseFloat(current);
 
@@ -142,19 +136,15 @@ export default function Home() {
         {
           case '+':
             setCurrent(prev + curr);
-            isResult = true;
           break;
           case '-':
             setCurrent(prev - curr);
-            isResult = true;
           break;
           case '/':
             setCurrent(prev / curr);
-            isResult = true;
           break;
           case '*':
             setCurrent(prev * curr);
-            isResult = true;
           break;
           default:
             console.error("Error in Equal.");
@@ -165,16 +155,11 @@ export default function Home() {
 }
 
   return (
-    <main className='flex p-52 justify-center'>
-    
-
+    <main className='p-52'>
       {
-
         /*
-
         // row-span: would be the solution for the long-resized equals button. 
-        // or relative/absolute ... 
-        
+        // or relative/absolute ...    
 <div>
 <div className="grid grid-cols-4 gap-1">
 <div className="col-start-1 col-end-2">ac</div>
@@ -196,15 +181,12 @@ export default function Home() {
 <div className="col-start-3 col-end-3">.</div>
 </div>
 </div>
-        
-        
          */
       }
       
 
-
       <div className="border-solid border-8 border-black">
-        <div className="w-80">
+        <div className="">
       <div className="flex flex-row">
       {
         /*
@@ -253,9 +235,20 @@ export default function Home() {
         <Button updateDisplay={updateDisplay} class='border-solid border-2 border-black basis-3/4 bg-slate-500 p-5 hover:bg-slate-600' value='0' id='zero'></Button>
         <Button updateDisplay={updateDisplay} class='border-solid border-2 border-black basis-1/4 bg-yellow-500 p-5 hover:bg-yellow-600 flex-grow' value='=' id='equals'></Button>
         </div>
-    
         </div>
       </div>
+
+
+      <div className="text-center pt-10 text-white">
+      <div>Created by <a href="https://haustein.in">Hendrik Haustein</a></div>
+        <div>Tech: JS/React/NextJS | CSS/TailwindCSS</div>
+        </div>
+
+      
+
+  
+
     </main>
+
   )
 }
